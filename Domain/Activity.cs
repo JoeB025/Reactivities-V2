@@ -18,6 +18,10 @@ public class Activity
   public double Latitude { get; set; }
   public double Longitude { get; set; }
 
+  public static implicit operator System.Diagnostics.Activity(Activity v)
+  {
+    throw new NotImplementedException();
+  }
 }
 
 
