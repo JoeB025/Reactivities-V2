@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,12 +8,17 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
   opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-}); 
+});
+
+builder.Services.AddCors();
+
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()
+  .WithOrigins("http://localhost:3000", "https://localhost:3000")); 
 
 /* 
 This is middleware that provides the routing. So when we have incoming endpoint requests to our API (E.G trying to find a certain page), 
