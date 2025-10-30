@@ -48,3 +48,28 @@ public class ActivitiesController : BaseApiController
 
 // Everything derives from the Base API Controller 
 
+
+// ------------------------------------------------------------
+// FILE FLOW EXPLANATION:
+//
+// 1. The user sends an HTTP request to the API (e.g., GET /api/activities).
+//
+// 2. The ActivitiesController receives the request and calls Mediator.Send(...)
+//    with a specific command or query (e.g., GetActivityList.Query).
+//
+// 3. MediatR dispatches the query to its corresponding handler
+//    (e.g., GetActivityList.Handler), which contains the logic to process it.
+//
+// 4. The handler uses the AppDbContext to query the database
+//    and returns the result (e.g., a list of Activity objects).
+//
+// 5. The controller receives the result and returns it as an HTTP response
+//    (e.g., JSON) to the client or frontend view.
+//
+// BENEFITS:
+// - Keeps controllers thin and focused on HTTP concerns.
+// - Moves business/data logic into separate handlers.
+// - Promotes clean architecture using the CQRS pattern.
+// ------------------------------------------------------------
+
+
