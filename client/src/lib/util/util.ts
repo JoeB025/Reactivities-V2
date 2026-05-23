@@ -7,6 +7,7 @@
 
 
 import { format } from "date-fns";
+import { z } from "zod"; 
 
 export function formatDate(date: unknown) {
   if (!date) return "";
@@ -22,5 +23,11 @@ export function formatDate(date: unknown) {
 
   return format(d, "dd MMM yyyy h:mm a");
 }
+
+
+
+export const requiredString = (fieldName: string) => 
+  z.string({error: `${fieldName} is required`})
+  .min(1, {message: `${fieldName} is required`})
 
 

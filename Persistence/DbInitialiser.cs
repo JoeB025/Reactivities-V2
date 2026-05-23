@@ -20,7 +20,8 @@ public class DbInitialiser
             new() {DisplayName = "Joe", UserName = "joe@test.com", Email = "joe@test.com"},
             new() {DisplayName = "Shauni", UserName = "shauni@test.com", Email = "shauni@test.com"},
             new() {DisplayName = "Jodie", UserName = "jodie@test.com", Email = "jodie@test.com"},
-            new() {DisplayName = "Chelsea", UserName = "chelsea@test.com", Email = "chelsea@test.com"}
+            new() {DisplayName = "Chelsea", UserName = "chelsea@test.com", Email = "chelsea@test.com"},
+            new() {DisplayName = "Poppy", UserName = "poppy@test.com", Email = "poppy@test.com"}
         };
 
         foreach(var user in users)
